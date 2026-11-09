@@ -9,7 +9,7 @@ fi
 
 ruta="$1"
 
-# 1. Verificar si la ruta existe (-e)
+# Verificar si la ruta existe
 if [ ! -e "$ruta" ]; then
     echo "Error: La ruta '$ruta' no existe."
     exit 1
@@ -17,7 +17,7 @@ fi
 
 echo "--- Resultados de inspección para: $ruta ---"
 
-# 2. Determinar si es un archivo regular (-f) o directorio (-d)
+# Determinar si es un archivo regular
 if [ -f "$ruta" ]; then
     echo "Tipo: Archivo regular"
 elif [ -d "$ruta" ]; then
@@ -26,14 +26,14 @@ else
     echo "Tipo: Especial (enlace simbólico, socket, etc.)"
 fi
 
-# 3. Verificar permiso de lectura (-r)
+# Verificar permiso de lectura
 if [ -r "$ruta" ]; then
     echo "Lectura (r): Sí"
 else
     echo "Lectura (r): No"
 fi
 
-# 4. Verificar permiso de escritura (-w)
+# Verificar permiso de escritura
 if [ -w "$ruta" ]; then
     echo "Escritura (w): Sí"
 else
